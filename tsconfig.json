@@ -37,6 +37,9 @@
       ],
       "@_mock": [
         "_mock/index"
+      ],
+      "my-lib": [
+        "./dist/my-lib"
       ]
     }
   },

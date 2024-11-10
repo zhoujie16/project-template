@@ -8,6 +8,7 @@ import { DelonFormModule } from '@delon/form';
 
 import { SHARED_DELON_MODULES } from './shared-delon.module';
 import { SHARED_ZORRO_MODULES } from './shared-zorro.module';
+import { ImageWrapperComponent } from './components/image-wrapper';
 
 // #region third libs
 
@@ -17,7 +18,7 @@ const THIRDMODULES: Array<Type<void>> = [];
 
 // #region your componets & directives
 
-const COMPONENTS: Array<Type<void>> = [];
+const COMPONENTS: Array<Type<void>> = [ImageWrapperComponent];
 const DIRECTIVES: Array<Type<void>> = [];
 
 // #endregion
@@ -58,4 +59,4 @@ const DIRECTIVES: Array<Type<void>> = [];
     ...DIRECTIVES
   ]
 })
-export class SharedModule { }
+export class SharedModule {}

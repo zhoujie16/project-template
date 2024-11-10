@@ -77,6 +77,7 @@
     "ng-alain-plugin-theme": "^18.0.0",
     "source-map-explorer": "^2.5.3",
     "@angular/language-service": "^18.2.0",
+    "ng-packagr": "^18.2.0",
     "ngx-tinymce": "^18.0.0",
     "@ng-util/monaco-editor": "^18.0.0",
     "@delon/testing": "^18.3.0",
