@@ -83,38 +83,14 @@ export class UserLoginComponent implements OnDestroy {
   }
 
   submit(): void {
-    this.error = '';
-    if (this.type === 0) {
-      const { userName, password } = this.form.controls;
-      userName.markAsDirty();
-      userName.updateValueAndValidity();
-      password.markAsDirty();
-      password.updateValueAndValidity();
-      if (userName.invalid || password.invalid) {
-        return;
-      }
-    } else {
-      const { mobile, captcha } = this.form.controls;
-      mobile.markAsDirty();
-      mobile.updateValueAndValidity();
-      captcha.markAsDirty();
-      captcha.updateValueAndValidity();
-      if (mobile.invalid || captcha.invalid) {
-        return;
-      }
-    }
-
-    // 默认配置中对所有HTTP请求都会强制 [校验](https://ng-alain.com/auth/getting-started) 用户 Token
-    // 然一般来说登录请求不需要校验，因此加上 `ALLOW_ANONYMOUS` 表示不触发用户 Token 校验
-    this.loading = true;
-    this.cdr.detectChanges();
+    console.log('login');
     this.http
       .post(
         '/login/account',
         {
-          type: this.type,
-          userName: this.form.value.userName,
-          password: this.form.value.password
+          type: 1,
+          userName: 'admin',
+          password: 'ng-alain.com'
         },
         null,
         {
@@ -123,13 +99,11 @@ export class UserLoginComponent implements OnDestroy {
       )
       .pipe(
         finalize(() => {
-          this.loading = false;
           this.cdr.detectChanges();
         })
       )
       .subscribe(res => {
         if (res.msg !== 'ok') {
-          this.error = res.msg;
           this.cdr.detectChanges();
           return;
         }
@@ -145,6 +119,7 @@ export class UserLoginComponent implements OnDestroy {
           if (url.includes('/passport')) {
             url = '/';
           }
+          // window.location.href = 'http://localhost:8081/ticket-admin-ui/login';
           this.router.navigateByUrl(url);
         });
       });

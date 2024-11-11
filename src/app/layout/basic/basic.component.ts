@@ -18,8 +18,8 @@ import { HeaderUserComponent } from './widgets/user.component';
 @Component({
   selector: 'layout-basic',
   template: `
-    <layout-default [options]="options" [asideUser]="asideUserTpl" [content]="contentTpl" [customError]="null">
-      <layout-default-header-item direction="left">
+    <layout-default [options]="options" [content]="contentTpl" [customError]="null">
+      <!-- <layout-default-header-item direction="left">
         <a layout-default-header-item-trigger href="//github.com/ng-alain/ng-alain" target="_blank">
           <i nz-icon nzType="github"></i>
         </a>
@@ -51,11 +51,11 @@ import { HeaderUserComponent } from './widgets/user.component';
             </div>
           </div>
         </nz-dropdown-menu>
-      </layout-default-header-item>
+      </layout-default-header-item> -->
       <layout-default-header-item direction="right">
         <header-user />
       </layout-default-header-item>
-      <ng-template #asideUserTpl>
+      <!-- <ng-template #asideUserTpl>
         <div nz-dropdown nzTrigger="click" [nzDropdownMenu]="userMenu" class="alain-default__aside-user">
           <nz-avatar class="alain-default__aside-user-avatar" [nzSrc]="user.avatar" />
           <div class="alain-default__aside-user-info">
@@ -69,7 +69,7 @@ import { HeaderUserComponent } from './widgets/user.component';
             <li nz-menu-item routerLink="/pro/account/settings">个人设置</li>
           </ul>
         </nz-dropdown-menu>
-      </ng-template>
+      </ng-template> -->
       <ng-template #contentTpl>
         <router-outlet />
       </ng-template>
@@ -100,7 +100,7 @@ import { HeaderUserComponent } from './widgets/user.component';
 export class LayoutBasicComponent {
   private readonly settings = inject(SettingsService);
   options: LayoutDefaultOptions = {
-    logoExpanded: `./assets/logo-full.svg`,
+    logoExpanded: `./assets/logo.svg`,
     logoCollapsed: `./assets/logo.svg`
   };
   searchToggleStatus = false;
