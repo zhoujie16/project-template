@@ -8,6 +8,7 @@ import { ReThrowHttpError, checkStatus, getAdditionalHeaders, toLogin } from './
 import { tryRefreshToken } from './refresh-token';
 
 function handleData(injector: Injector, ev: HttpResponseBase, req: HttpRequest<any>, next: HttpHandlerFn): Observable<any> {
+  console.log('handleData');
   checkStatus(injector, ev);
   // 业务处理：一些通用操作
   switch (ev.status) {
@@ -62,6 +63,7 @@ function handleData(injector: Injector, ev: HttpResponseBase, req: HttpRequest<a
 }
 
 export const defaultInterceptor: HttpInterceptorFn = (req, next) => {
+  console.log('defaultInterceptor');
   // 统一加上服务端前缀
   let url = req.url;
   if (!req.context.get(IGNORE_BASE_URL) && !url.startsWith('https://') && !url.startsWith('http://')) {

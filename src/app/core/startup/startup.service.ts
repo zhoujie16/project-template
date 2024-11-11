@@ -55,13 +55,10 @@ export class StartupService {
     this.titleService.suffix = res.app?.name;
   }
 
-  
   private viaHttp(): Observable<void> {
     return this.appData$.pipe(map((res: NzSafeAny) => this.handleAppData(res)));
   }
-  
 
-  
   private viaMock(): Observable<void> {
     // const tokenData = this.tokenService.get();
     // if (!tokenData.token) {
@@ -88,13 +85,30 @@ export class StartupService {
     // Menu data, https://ng-alain.com/theme/menu
     this.menuService.add([
       {
-        text: 'Main',
+        text: '',
         group: true,
         children: [
           {
             text: 'Dashboard',
             link: '/dashboard',
             icon: { type: 'icon', value: 'appstore' }
+          },
+          {
+            text: 'Demo',
+            link: '/demo',
+            icon: { type: 'icon', value: 'appstore' },
+            children: [
+              {
+                text: 'demo-1',
+                link: '/demo/demo-1',
+                icon: { type: 'icon', value: 'appstore' }
+              },
+              {
+                text: 'demo-2',
+                link: '/demo/demo-2',
+                icon: { type: 'icon', value: 'appstore' }
+              }
+            ]
           }
         ]
       }
