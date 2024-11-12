@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutBasicComponent } from '../layout';
 import { Demo1Component } from './demo/demo-1/demo-1.component';
 import { Demo2Component } from './demo/demo-2/demo-2.component';
+import { DemoFormComponent } from './demo/demo-form/demo-form.component';
 
 export const routes: Routes = [
   {
@@ -21,7 +22,8 @@ export const routes: Routes = [
         path: 'demo',
         children: [
           { path: 'demo-1', component: Demo1Component },
-          { path: 'demo-2', component: Demo2Component }
+          { path: 'demo-2', component: Demo2Component },
+          { path: 'demo-form', component: DemoFormComponent }
         ]
       }
     ]

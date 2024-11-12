@@ -107,6 +107,11 @@ export class StartupService {
                 text: 'demo-2',
                 link: '/demo/demo-2',
                 icon: { type: 'icon', value: 'appstore' }
+              },
+              {
+                text: 'demo-form',
+                link: '/demo/demo-form',
+                icon: { type: 'icon', value: 'appstore' }
               }
             ]
           }
